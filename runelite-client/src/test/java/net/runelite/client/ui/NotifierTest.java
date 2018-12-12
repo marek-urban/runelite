@@ -44,9 +44,9 @@ public class NotifierTest {
     private ScheduledExecutorService scheduledExecutorService;
 
     @Before
-    public void setUp() {
-        RuneLiteConfig runeLiteConfig = new RuneLiteConfig() {
-        };
+    public void setUp()
+    {
+        RuneLiteConfig runeLiteConfig = new RuneLiteConfig() {};
         runeLiteProperties = new RuneLiteProperties();
         ContainableFrame frame = mock(ContainableFrame.class);
         trayIcon = SwingUtil.createTrayIcon(ICON, runeLiteProperties.getTitle(), frame);
@@ -55,7 +55,8 @@ public class NotifierTest {
     }
 
     @Test
-    public void testSkipNotification() {
+    public void testSkipNotification()
+    {
         ContainableFrame frame = mock(ContainableFrame.class);
         RuneLiteProperties runeLiteProperties = mock(RuneLiteProperties.class);
 
@@ -69,21 +70,26 @@ public class NotifierTest {
 
 
     @Test
-    public void runNotificationTests() {
-        for (int i = 0; i < TrayIcon.MessageType.values().length; i++) {
+    public void runNotificationTests()
+    {
+        for (int i = 0; i < TrayIcon.MessageType.values().length; i++)
+        {
             testNotifyWithIcon(TrayIcon.MessageType.values()[i]);
         }
     }
 
     @Test
-    public void testNotifyWithoutIcon() {
+    public void testNotifyWithoutIcon()
+    {
         boolean success = false;
 
-        try {
+        try
+        {
             notifier.notify("Notification test message!");
             TimeUnit.SECONDS.sleep(2);
             success = true;
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
 
@@ -92,13 +98,16 @@ public class NotifierTest {
         assertEquals(trayIcon.getToolTip(), runeLiteProperties.getTitle());
     }
 
-    public void testNotifyWithIcon(TrayIcon.MessageType type) {
+    public void testNotifyWithIcon(TrayIcon.MessageType type)
+    {
         boolean success = false;
-        try {
+        try
+        {
             notifier.notify("Notification test message!", type);
             TimeUnit.SECONDS.sleep(2);
             success = true;
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
 
