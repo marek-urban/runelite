@@ -76,7 +76,7 @@ public class Notifier
 	private Instant flashStart;
 
 	@Inject
-	private Notifier(
+	public Notifier(
 			final ClientUI clientUI,
 			final Client client,
 			final RuneLiteConfig runeliteConfig,
